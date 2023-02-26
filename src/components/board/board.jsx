@@ -54,17 +54,17 @@ export const Board = () => {
         <DragDropContext onDragEnd={onDragEnd}>
             <div className="board">
 
-                /* Map through the data to generate a Droppable section for each data object */
+                {/* Map through the data to generate a Droppable section for each data object */}
                 {data.map(section => (
                     <Droppable key={section.id} droppableId={section.id}>
                         {(provided) => (
                             <div className="section" {...provided.droppableProps} ref={provided.innerRef}>
 
-                                /* Displays the title */
+                                 {/* Displays the title */}
                                 <div className="title"> {section.title} </div>
                                 <div className="tasks">
 
-                                /* Map through the tasks array and generate a Draggable component for each task */
+                                {/* Map through the tasks array and generate a Draggable component for each task */}
                                     {section.tasks.map((task, index) => (
                                         <Draggable key={task.id} draggableId={task.id} index={index}>
                                             {(provided, snapshot) => (
@@ -73,13 +73,13 @@ export const Board = () => {
                                                     {...provided.draggableProps}
                                                     {...provided.dragHandleProps}
                                                 >
-                                                      /* Render the task title */
+                                                      {/* Render the task title */}
                                                     <Tasks>{task.title}</Tasks>
                                                 </div>
                                             )}
                                         </Draggable>
                                     ))}
-                                    /* Render the provided placeholder */
+                                    {/* Render the provided placeholder */}
                                     {provided.placeholder}
                                 </div>
                             </div>
